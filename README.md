@@ -1,4 +1,4 @@
-# testsee
+# journey-genius-ui
 
 ## Project setup
 ```
