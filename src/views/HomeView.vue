@@ -1,18 +1,15 @@
 <template>
-  <HelloWorld />
+  <div class="home">
+    <h1>Homepage</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus ut ipsa possimus quaerat est nostrum dignissimos, animi rem voluptate ab officia? Incidunt delectus reprehenderit sapiente eaque laborum, corporis ab nisi!</p>
+  </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
 
-// Components
-import HelloWorld from '../components/HelloWorld.vue';
 
 export default defineComponent({
-  name: 'HomeView',
-
-  components: {
-    HelloWorld,
-  },
+  
 });
 </script>
