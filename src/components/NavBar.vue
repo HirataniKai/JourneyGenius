@@ -18,14 +18,14 @@
             <v-btn flat color="grey" to="/">
                 Home
             </v-btn>
-            <v-btn flat color="grey" to="/startPlanning">
+            <v-btn flat color="grey" to="/UserProfiling">
                 User Profiling
             </v-btn>
-            <v-btn flat color="grey" to="/startPlanning">
+            <v-btn flat color="grey" to="/StartPlanning">
                 Start Planning
             </v-btn>
-            <v-btn flat color="grey" to="/about">
-                Your Trips
+            <v-btn flat color="grey" to="/SavedTrips">
+                Saved Trips
             </v-btn>
             <v-btn flat color="grey">
                 <span style="margin-right: 8px;">Sign Out</span>
