@@ -1,6 +1,6 @@
 <template>
     <div class="StartPlanning">
-      <h1>Start Planning</h1>
+      <h1 class="subtitle-1 grey--text">Start Planning</h1>
       <p>Two claps I rock</p>
     </div>
   </template>

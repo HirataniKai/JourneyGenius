@@ -1,86 +1,45 @@
 <template>
     <nav>
-        <v-toolbar flat app>
-
-            <!-- If we want to utilize the sidebar component -->
-            <!-- <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
-
-
-            <!-- Title -->
-
-            <v-toolbar-title class="text-uppercase grey--text">
-                <span class="font-weight-light">Journey</span>
-                <span>Genius</span>
-            </v-toolbar-title>
-
-            <v-spacer></v-spacer>
-            <!-- Buttons that link to other parts of the site -->
-            <v-btn flat color="grey" to="/">
-                Home
-            </v-btn>
-            <v-btn flat color="grey" to="/UserProfiling">
-                User Profiling
-            </v-btn>
-            <v-btn flat color="grey" to="/StartPlanning">
-                Start Planning
-            </v-btn>
-            <v-btn flat color="grey" to="/SavedTrips">
-                Saved Trips
-            </v-btn>
-            <v-btn flat color="grey">
-                <span style="margin-right: 8px;">Sign Out</span>
-                <v-icon right>mdi-exit-to-app</v-icon>
-            </v-btn>
-        </v-toolbar>
-
-        <!-- This is the sidebar component -->
-        <!-- <v-navigation-drawer
-        v-model="drawer"
-        location="left"
-        temporary
-      >
-        <v-list
-          :items="items"
-        ></v-list>
-      </v-navigation-drawer>
-
-      <v-main style="height: 500px;">
-    </v-main> -->
-
-
+      <v-toolbar flat app>
+  
+        <!-- If we want to utilize the sidebar component -->
+        <!-- <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
+  
+        <!-- Title -->
+        <v-toolbar-title class="text-uppercase grey--text mr-5">
+          <span class="font-weight-light">Journey</span>
+          <span>Genius</span>
+        </v-toolbar-title>
+  
+        <!-- Buttons that link to other parts of the site -->
+        <div class="d-flex align-center ml-14">
+          <v-btn v-for="button in buttons" :key="button.to" flat color="grey" :to="button.to">
+            {{ button.text }}
+          </v-btn>
+        </div>
+  
+        <v-spacer></v-spacer>
+  
+        <v-btn flat color="grey">
+          <span style="margin-right: 8px;">Sign Out</span>
+          <v-icon right>mdi-exit-to-app</v-icon>
+        </v-btn>
+      </v-toolbar>
     </nav>
-</template>
-
-<script>
-export default {
-    // Sidebar component
-    // data: () => ({
-    //   drawer: false,
-    //   group: null,
-    //   items: [
-    //     {
-    //       title: 'Foo',
-    //       value: 'foo',
-    //     },
-    //     {
-    //       title: 'Bar',
-    //       value: 'bar',
-    //     },
-    //     {
-    //       title: 'Fizz',
-    //       value: 'fizz',
-    //     },
-    //     {
-    //       title: 'Buzz',
-    //       value: 'buzz',
-    //     },
-    //   ],
-    // }),
-
-    // watch: {
-    //   group () {
-    //     this.drawer = false
-    //   },
-    // },
-}
-</script>
+  </template>
+  
+  <script>
+  export default {
+    data() {
+      return {
+        buttons: [
+          { text: 'Home', to: '/' },
+          { text: 'User Profiling', to: '/UserProfiling' },
+          { text: 'Start Planning', to: '/StartPlanning' },
+          { text: 'Saved Trips', to: '/SavedTrips' },
+        ],
+      };
+    },
+  };
+  </script>
+  

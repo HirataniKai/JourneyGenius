@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-      <h1>Saved Trips</h1>
+      <h1 class="subtitle-1 grey--text">Saved Trips</h1>
       <p>Two claps I rock</p>
     </div>
   </template>
