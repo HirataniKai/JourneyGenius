@@ -12,7 +12,7 @@
         </v-toolbar-title>
   
         <!-- Buttons that link to other parts of the site -->
-        <div class="d-flex align-center ml-14">
+        <div class="d-flex align-center ml-16">
           <v-btn v-for="button in buttons" :key="button.to" flat color="grey" :to="button.to">
             {{ button.text }}
           </v-btn>
@@ -20,8 +20,8 @@
   
         <v-spacer></v-spacer>
   
-        <v-btn flat color="grey">
-          <span style="margin-right: 8px;">Sign Out</span>
+        <v-btn color="grey darken-2" flat>
+          <span style="margin-right: 5px;">Login</span>
           <v-icon right>mdi-exit-to-app</v-icon>
         </v-btn>
       </v-toolbar>
