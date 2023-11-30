@@ -35,7 +35,7 @@
         buttons: [
           { text: 'Home', to: '/' },
           { text: 'User Profiling', to: '/UserProfiling' },
-          { text: 'Start Planning', to: '/StartPlanning' },
+          { text: 'Plan Trip', to: '/StartPlanning' },
           { text: 'Saved Trips', to: '/SavedTrips' },
         ],
       };

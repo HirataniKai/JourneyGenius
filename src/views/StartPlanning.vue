@@ -1,21 +1,96 @@
 <template>
-    <div class="StartPlanning">
-      <h1 class="subtitle-1 grey--text">Start Planning</h1>
-      <p>Two claps I rock</p>
+  <v-container>
+    <!-- Header -->
+    <v-row justify="center">
+      <v-col cols="12" md="8" class="mb-4">
+        <v-card class="pa-4" style="border: none; background-color: transparent;">
+          <h2 style="font-size: 2.5rem; color: black;">Plan Your Next Adventure</h2>
+          <p>Our app transforms vacation planning by creating personalized itineraries based on user preferences. Users input their budget, location, stay duration, and interests. Using advanced algorithms, the app scans diverse travel data to find budget-friendly accommodations, local attractions, and outdoor activities, optimizing the itinerary for a cost-effective trip.</p>
+        </v-card>
+      </v-col>
+    </v-row>
 
-      <v-container class="my-5">
-        <p>content</p>
-      </v-container>
-      
-    </div>
-  </template>
-  
-  <script>
-  import { defineComponent } from 'vue';
-  
-  
-  export default defineComponent({
-    
-  });
-  </script>
-  
+    <!-- Section for storing where they want to travel -->
+    <v-row justify="center">
+      <v-col cols="12" md="8">
+        <v-card class="pa-4 mb-4">
+          <h2>Where do you want to travel?</h2>
+          <br>
+          <v-text-field v-model="travelDestination" label="United States"></v-text-field>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <!-- Date input components -->
+    <v-row justify="center">
+      <v-col cols="12" md="8">
+        <v-card class="pa-4 mb-4">
+          <h2 class="headline text-deep-purple-accent-2">How Long Is Your Trip?</h2>
+          <br>
+          <v-row>
+            <v-col cols="6">
+              <v-text-field v-model="startDate" label="Start Date" readonly @click="startDateMenu = !startDateMenu"></v-text-field>
+              <v-menu v-model="startDateMenu" :close-on-content-click="false" transition="scale-transition">
+                <template v-slot:activator="{ on }">
+                  <v-text-field v-model="startDate" readonly v-on="on"></v-text-field>
+                </template>
+                <v-date-picker v-model="startDate" @input="startDateMenu = false"></v-date-picker>
+              </v-menu>
+            </v-col>
+            <v-col cols="6">
+              <v-text-field v-model="endDate" label="End Date" readonly @click="endDateMenu = !endDateMenu"></v-text-field>
+              <v-menu v-model="endDateMenu" :close-on-content-click="false" transition="scale-transition">
+                <template v-slot:activator="{ on }">
+                  <v-text-field v-model="endDate" readonly v-on="on"></v-text-field>
+                </template>
+                <v-date-picker v-model="endDate" @input="endDateMenu = false"></v-date-picker>
+              </v-menu>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <!-- Budget selection -->
+    <v-row justify="center">
+      <v-col cols="12" md="8">
+        <v-card class="pa-4 mb-4">
+          <h2>Choose Your Budget</h2>
+          <v-row justify="center">
+            <v-col cols="4">
+              <v-btn color="primary" @click="selectBudget('cheap')">Cheap</v-btn>
+            </v-col>
+            <v-col cols="4">
+              <v-btn color="primary" @click="selectBudget('medium')">Medium</v-btn>
+            </v-col>
+            <v-col cols="4">
+              <v-btn color="primary" @click="selectBudget('expensive')">Expensive</v-btn>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data() {
+    return {
+      startDateMenu: false,
+      endDateMenu: false,
+      startDate: null,
+      endDate: null,
+      travelDestination: null,
+      selectedBudget: null,
+    };
+  },
+  methods: {
+    selectBudget(budget) {
+      this.selectedBudget = budget;
+    },
+  },
+});
+</script>
