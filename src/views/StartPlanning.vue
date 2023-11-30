@@ -5,7 +5,10 @@
       <v-col cols="12" md="8" class="mb-4">
         <v-card class="pa-4" style="border: none; background-color: transparent;">
           <h2 style="font-size: 2.5rem; color: black;">Plan Your Next Adventure</h2>
-          <p>Our app transforms vacation planning by creating personalized itineraries based on user preferences. Users input their budget, location, stay duration, and interests. Using advanced algorithms, the app scans diverse travel data to find budget-friendly accommodations, local attractions, and outdoor activities, optimizing the itinerary for a cost-effective trip.</p>
+          <p>Our app transforms vacation planning by creating personalized itineraries based on user preferences. Users
+            input their budget, location, stay duration, and interests. Using advanced algorithms, the app scans diverse
+            travel data to find budget-friendly accommodations, local attractions, and outdoor activities, optimizing the
+            itinerary for a cost-effective trip.</p>
         </v-card>
       </v-col>
     </v-row>
@@ -29,7 +32,8 @@
           <br>
           <v-row>
             <v-col cols="6">
-              <v-text-field v-model="startDate" label="Start Date" readonly @click="startDateMenu = !startDateMenu"></v-text-field>
+              <v-text-field v-model="startDate" label="Start Date" readonly
+                @click="startDateMenu = !startDateMenu"></v-text-field>
               <v-menu v-model="startDateMenu" :close-on-content-click="false" transition="scale-transition">
                 <template v-slot:activator="{ on }">
                   <v-text-field v-model="startDate" readonly v-on="on"></v-text-field>
@@ -38,7 +42,8 @@
               </v-menu>
             </v-col>
             <v-col cols="6">
-              <v-text-field v-model="endDate" label="End Date" readonly @click="endDateMenu = !endDateMenu"></v-text-field>
+              <v-text-field v-model="endDate" label="End Date" readonly
+                @click="endDateMenu = !endDateMenu"></v-text-field>
               <v-menu v-model="endDateMenu" :close-on-content-click="false" transition="scale-transition">
                 <template v-slot:activator="{ on }">
                   <v-text-field v-model="endDate" readonly v-on="on"></v-text-field>
@@ -55,21 +60,69 @@
     <v-row justify="center">
       <v-col cols="12" md="8">
         <v-card class="pa-4 mb-4">
-          <h2>Choose Your Budget</h2>
+          <h2 class="headline text-deep-purple-accent-2">How Much Have You Allocated for Your Expenses?</h2>
+          <p>The budget is specifically designated for activities and dining experiences.</p>
+          <br>
           <v-row justify="center">
             <v-col cols="4">
-              <v-btn color="primary" @click="selectBudget('cheap')">Cheap</v-btn>
+              <v-btn color="deep-purple-accent-2" append-icon="$vuetify" stacked @click="selectBudget('cheap')">
+                <div>Cheap</div>
+                <div class="caption text--secondary">0 - 1000 USD</div>
+              </v-btn>
             </v-col>
             <v-col cols="4">
-              <v-btn color="primary" @click="selectBudget('medium')">Medium</v-btn>
+              <v-btn color="deep-purple-accent-2" append-icon="$vuetify" stacked @click="selectBudget('medium')">
+                <div>Medium</div>
+                <div class="caption text--secondary">1000 - 2500 USD</div>
+              </v-btn>
             </v-col>
             <v-col cols="4">
-              <v-btn color="primary" @click="selectBudget('expensive')">Expensive</v-btn>
+              <v-btn color="deep-purple-accent-2" append-icon="$vuetify" stacked @click="selectBudget('expensive')">
+                <div>Expensive</div>
+                <div class="caption text--secondary">2500+ USD</div>
+              </v-btn>
             </v-col>
           </v-row>
         </v-card>
       </v-col>
     </v-row>
+
+    <!-- Travel Companions selection -->
+<v-row justify="center">
+  <v-col cols="12" md="8">
+    <v-card class="pa-4 mb-4">
+      <h2 class="headline text-deep-purple-accent-2">Who Are Your Travel Companions?</h2>
+      <v-row justify="center" align="center">
+        <v-col cols="4">
+          <v-btn color="deep-purple-accent-2" max-width="200" @click="selectTravelCompanion('solo')">
+            <div>Solo</div>
+          </v-btn>
+        </v-col>
+        <v-col cols="4">
+          <v-btn color="deep-purple-accent-2" max-width="200" @click="selectTravelCompanion('group')">
+            <div>Group</div>
+          </v-btn>
+        </v-col>
+        <v-col cols="4">
+          <v-btn color="deep-purple-accent-2" max-width="200" @click="selectTravelCompanion('couple')">
+            <div>Couple</div>
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-card>
+  </v-col>
+</v-row>
+
+  <!-- Generate button -->
+  <v-row justify="center" >
+      <v-col cols="12" md="8" class="text-center">
+        <br>
+        <v-btn class="generate-btn" color="deep-purple-accent-2" @click="generateItinerary">
+          Generate
+        </v-btn>
+      </v-col>
+    </v-row>
+
   </v-container>
 </template>
 
@@ -91,6 +144,15 @@ export default defineComponent({
     selectBudget(budget) {
       this.selectedBudget = budget;
     },
+    selectTravelCompanion(companion) {
+      this.companion = companion;
+    },
+    generateItinerary() {
+      // Add logic for generating the itinerary or route to another view page
+      // For example, you can use Vue Router to navigate to a new page
+      this.$router.push('/Itinerary'); 
+    },
   },
 });
 </script>
+
