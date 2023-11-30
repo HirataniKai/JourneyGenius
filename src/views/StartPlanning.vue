@@ -9,6 +9,8 @@
             input their budget, location, stay duration, and interests. Using advanced algorithms, the app scans diverse
             travel data to find budget-friendly accommodations, local attractions, and outdoor activities, optimizing the
             itinerary for a cost-effective trip.</p>
+          <br>
+          <hr>
         </v-card>
       </v-col>
     </v-row>

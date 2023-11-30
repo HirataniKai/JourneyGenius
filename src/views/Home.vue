@@ -4,7 +4,7 @@
     <!-- Top Section -->
     <v-row align="center" justify="center" class="my-3">
       <v-col cols="12" md="10" lg="8" class="text-center">
-        <v-card class="pa-5">
+        <v-card class="pa-5" >
           <h2 class="display-1 font-weight-black">
             Generate Timeless 
           </h2>
