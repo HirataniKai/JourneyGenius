@@ -6,6 +6,7 @@ import { loadFonts } from './plugins/webfontloader'
 import 'vuetify/dist/vuetify.min.css';
 //import 'materialize-css/dist/css/materialize.min.css';
 
+
 loadFonts()
 
 createApp(App)
