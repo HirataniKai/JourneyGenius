@@ -4,6 +4,7 @@ import about from '../views/About.vue'
 import UserProfiling from '../views/UserProfiling.vue'
 import SavedTrips from '../views/SavedTrips.vue'
 import StartPlanning from '../views/StartPlanning.vue'
+import LoginPage from '../views/LoginPage.vue'
 
 const routes = [
   {
@@ -33,7 +34,12 @@ const routes = [
     path: '/SavedTrips',
     name: 'SavedTrips',
     component: SavedTrips,
-  }
+  },
+  {
+    path: '/LoginPage',
+    name: 'LoginPage', 
+    component: LoginPage, 
+  },
 ]
 
 const router = createRouter({

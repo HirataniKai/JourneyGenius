@@ -20,10 +20,12 @@
   
         <v-spacer></v-spacer>
   
+        <router-link to='/LoginPage' >
         <v-btn color="grey darken-2" flat>
           <span style="margin-right: 5px;">Login</span>
           <v-icon right>mdi-exit-to-app</v-icon>
         </v-btn>
+      </router-link>
       </v-toolbar>
     </nav>
   </template>
