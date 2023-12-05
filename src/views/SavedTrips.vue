@@ -3,7 +3,7 @@
     <!-- Saved Trips Introduction -->
     <v-row justify="center" class="mt-4">
       <v-col cols="12" md="8" class="text-center">
-        <h1 class="headline text-deep-purple-accent-2">Saved Trips</h1>
+        <h2 style="font-size: 2.5rem;" class="headline text-deep-purple-accent-2">Saved Trips</h2>
         <p>
           Explore and manage your saved adventures effortlessly on our "Saved Trips" page. Easily access
           and review your curated itineraries, and if inspiration strikes or plans change, customize them

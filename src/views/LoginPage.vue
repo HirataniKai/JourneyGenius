@@ -16,8 +16,8 @@
 
         <v-divider></v-divider>
         <v-card-actions>
-          <v-btn color="success" @click="register">Register</v-btn>
-          <v-btn color="info" @click="login">Login</v-btn>
+          <v-btn color="deep-purple-accent-2" @click="register">Register</v-btn>
+          <v-btn color="deep-purple-accent-2" @click="login">Login</v-btn>
         </v-card-actions>
       </v-card>
     </v-content>

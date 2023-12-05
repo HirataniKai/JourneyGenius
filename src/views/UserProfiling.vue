@@ -3,7 +3,7 @@
     <!-- Your Header -->
     <v-row justify="center" class="mt-4">
       <v-col cols="12" md="8" class="text-center">
-        <h2 class="headline text-deep-purple-accent-2">Your Interests</h2>
+        <h2 style="font-size: 2.5rem;" class="headline text-deep-purple-accent-2">Your Interests</h2>
         <p>User profiling is integral to our application for several reasons. 
           By understanding the unique preferences, interests, budget constraints, 
           and travel goals of each user, we can tailor the recommendations to 
