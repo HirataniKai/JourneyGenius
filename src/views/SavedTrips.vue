@@ -16,68 +16,87 @@
       </v-col>
     </v-row>
 
-    <!-- Saved Trip Card -->
-    <v-row justify="center">
-      <v-col cols="12" md="8">
-        <v-card class="pa-4 mb-4">
-          <!-- Title and Delete Button Section -->
-          <v-row align="center">
+   <!-- Saved Trip Cards -->
+<v-row justify="center">
+  <v-col cols="12" md="8" v-for="(trip, index) in savedTrips" :key="index">
+    <v-card class="pa-4 mb-4">
+      <!-- Title and Delete Button Section -->
+      <v-row align="center" class="mb-1">
+        <v-col cols="12">
+          <v-row justify="space-between" align="center">
             <v-col cols="8">
-              <h2 class="headline">San Francisco, California</h2>
+              <h2 class="headline mb-2">{{ trip.location }}</h2>
             </v-col>
             <v-col cols="4" class="text-right">
-              <v-btn icon>
+              <v-btn icon @click="confirmDelete(index)">
                 <v-icon>mdi-delete</v-icon>
               </v-btn>
             </v-col>
           </v-row>
+        </v-col>
+      </v-row>
 
-          <!-- Main Content Section -->
-          <v-row>
-            <!-- Description and Activities Section -->
-            <v-col cols="12" md="6">
-              <p>
-                San Francisco is a vibrant city known for its iconic landmarks, diverse culture, and stunning views.
-                Explore the Golden Gate Bridge, visit Alcatraz Island, and stroll through Fisherman's Wharf for a
-                taste of the city's rich history and delicious seafood.
-              </p>
-              <br>
-              <h3 class="subtitle-1">Activities:</h3>
-              <ul>
-                <li>Golden Gate Bridge Sightseeing</li>
-                <li>Alcatraz Island Tour</li>
-                <li>Fisherman's Wharf Exploration</li>
-                <!-- Add more activities as needed -->
-              </ul>
-            </v-col>
+      <!-- Main Content Section -->
+      <v-row>
+        <!-- Description and Activities Section -->
+        <v-col cols="12" md="6" class="pr-4">
+          <p class="mb-2">{{ trip.description }}</p>
+          <h3 class="subtitle-1 mb-2">Activities:</h3>
+          <ul class="pl-2"> <!-- Added margin-left to the activities list -->
+            <li v-for="activity in trip.activities" :key="activity">{{ activity }}</li>
+          </ul>
+        </v-col>
 
-             <!-- Image and Open Itinerary Button Section -->
-      <v-col cols="12" md="6">
-        <v-row align="center" justify="center">
-          <v-img
-            src="@/assets/sf.jpeg"
-            alt="San Francisco"
-            class="mb-3"
-            style="width: 100%; border-radius: 8px;"
-          ></v-img>
-          <v-btn color="primary" class="mt-3" @click="openItinerary">
-            Open Itinerary
-          </v-btn>
-        </v-row>
-      </v-col>
+        <!-- Image and Open Itinerary Button Section -->
+        <v-col cols="12" md="6">
+          <v-row align="center" justify="center">
+            <v-img
+              :src="trip.imageSrc"
+              :alt="trip.location"
+              class="mb-3"
+              style="width: 100%; border-radius: 8px;"
+            ></v-img>
+            <v-btn color="primary" class="mt-3" @click="openItinerary">
+              Open Itinerary
+            </v-btn>
           </v-row>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+        </v-col>
+      </v-row>
+    </v-card>
+  </v-col>
+</v-row>
+</v-container>
+
+
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      savedTrips: [
+        {
+          location: 'San Francisco, California',
+          description: `San Francisco is a vibrant city known for its iconic landmarks, diverse culture, and stunning views. Explore the Golden Gate Bridge, visit Alcatraz Island, and stroll through Fisherman's Wharf for a taste of the city's rich history and delicious seafood.`,
+          activities: ['Golden Gate Bridge Sightseeing', 'Alcatraz Island Tour', 'Fisherman\'s Wharf Exploration', 'Vibrant Asian Culture in Chinatown'],
+          imageSrc: require('@/assets/sf.jpeg'),
+        },
+        // Add more saved trips as needed
+      ],
+    };
+  },
   methods: {
     openItinerary() {
       // Implement logic to open the itinerary for this saved trip
       console.log('Opening Itinerary...');
+    },
+    confirmDelete(index) {
+      const isConfirmed = window.confirm('Are you sure you want to delete this trip?');
+
+      if (isConfirmed) {
+        // Implement logic to delete the saved trip
+        this.savedTrips.splice(index, 1); // Remove the trip at the specified index
+      }
     },
   },
 };
@@ -86,3 +105,7 @@ export default {
 <style scoped>
 /* Add custom styles if needed */
 </style>
+
+
+
+

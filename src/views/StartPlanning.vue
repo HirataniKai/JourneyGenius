@@ -24,7 +24,6 @@
           <v-autocomplete v-model="city" :items="autocompleteCities" label="Type a City" @input="onInputChange">
           </v-autocomplete>
 
-
         </v-card>
       </v-col>
     </v-row>
@@ -38,24 +37,12 @@
           <v-row>
             <!-- Start Date -->
             <v-col cols="6">
-              <v-menu max-width="290">
-                <template v-slot:activator="{ on }">
-                  <v-text-field v-model="startDate" label="Start Date" prepend-icon="mdi-calendar-range"
-                    v-on="on"></v-text-field>
-                </template>
-                <v-date-picker v-model="startDate"></v-date-picker>
-              </v-menu>
+              <v-text-field v-model="startDate" label="Start Date" type="date" @input="updateStartDate"></v-text-field>
             </v-col>
 
             <!-- End Date -->
             <v-col cols="6">
-              <v-menu max-width="290">
-                <template v-slot:activator="{ on }">
-                  <v-text-field v-model="endDate" label="End Date" prepend-icon="mdi-calendar-range"
-                    v-on="on"></v-text-field>
-                </template>
-                <v-date-picker v-model="endDate"></v-date-picker>
-              </v-menu>
+              <v-text-field v-model="endDate" label="End Date" type="date" @input="updateEndDate"></v-text-field>
             </v-col>
           </v-row>
         </v-card>
@@ -131,6 +118,8 @@ export default defineComponent({
       city: '',
       allCities: ['New York', 'Los Angeles', 'Chicago', 'San Francisco', 'Seattle'],
       menu: false,
+      startDate: '', // Initialize with an empty string or a default date
+      endDate: '',
 
       // Data for budget selection
       budgets: [
@@ -158,15 +147,17 @@ export default defineComponent({
     autocompleteCities() {
       // Check if this.city is null or undefined
       if (this.city == null) {
-        return [];
+        return this.allCities;
       }
 
+      const lowerCaseInput = this.city.toLowerCase();
+      return this.allCities.filter(city => city.toLowerCase().includes(lowerCaseInput));
       // Filter cities based on user input
-      return this.allCities.filter(city =>
-        city.toLowerCase().includes(this.city.toLowerCase())
-      );
+      // return this.allCities.filter(city =>
+      //   city.toLowerCase().includes(this.city.toLowerCase())
+      // );
     },
-    
+
   },
   methods: {
     // Method for handling input change in the city text field
