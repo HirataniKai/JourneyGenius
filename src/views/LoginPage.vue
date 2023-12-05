@@ -20,6 +20,7 @@
           <v-btn color="deep-purple-accent-2" @click="login">Login</v-btn>
         </v-card-actions>
       </v-card>
+      <br>
     </v-content>
 
     <v-footer dark padless>

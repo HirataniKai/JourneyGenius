@@ -19,51 +19,48 @@
         <v-card class="pa-4 mb-4">
           <h3 class="headline text-deep-purple-accent-2">Where do you want to travel?</h3>
           <br>
-          <v-text-field v-model="travelDestination" label="United States"></v-text-field>
+
+          <!-- This was working -->
+          <v-autocomplete v-model="city" :items="autocompleteCities" label="Type a City" @input="onInputChange">
+          </v-autocomplete>
+
+
         </v-card>
       </v-col>
     </v-row>
 
-   <!-- Date input components -->
-<v-row justify="center">
-  <v-col cols="12" md="8">
-    <v-card class="pa-4 mb-4">
-      <h3 class="headline text-deep-purple-accent-2">How Long Is Your Trip?</h3>
-      <br>
-      <v-row>
-        <!-- Start Date -->
-        <v-col cols="6">
-          <v-menu max-width="290">
-            <template v-slot:activator="{ on }">
-              <v-text-field
-                v-model="startDate"
-                label="Start Date"
-                prepend-icon="mdi-calendar-range"
-                v-on="on"
-              ></v-text-field>
-            </template>
-            <v-date-picker v-model="startDate"></v-date-picker>
-          </v-menu>
-        </v-col>
+    <!-- Date input components -->
+    <v-row justify="center">
+      <v-col cols="12" md="8">
+        <v-card class="pa-4 mb-4">
+          <h3 class="headline text-deep-purple-accent-2">How Long Is Your Trip?</h3>
+          <br>
+          <v-row>
+            <!-- Start Date -->
+            <v-col cols="6">
+              <v-menu max-width="290">
+                <template v-slot:activator="{ on }">
+                  <v-text-field v-model="startDate" label="Start Date" prepend-icon="mdi-calendar-range"
+                    v-on="on"></v-text-field>
+                </template>
+                <v-date-picker v-model="startDate"></v-date-picker>
+              </v-menu>
+            </v-col>
 
-        <!-- End Date -->
-        <v-col cols="6">
-          <v-menu max-width="290">
-            <template v-slot:activator="{ on }">
-              <v-text-field
-                v-model="endDate"
-                label="End Date"
-                prepend-icon="mdi-calendar-range"
-                v-on="on"
-              ></v-text-field>
-            </template>
-            <v-date-picker v-model="endDate"></v-date-picker>
-          </v-menu>
-        </v-col>
-      </v-row>
-    </v-card>
-  </v-col>
-</v-row>
+            <!-- End Date -->
+            <v-col cols="6">
+              <v-menu max-width="290">
+                <template v-slot:activator="{ on }">
+                  <v-text-field v-model="endDate" label="End Date" prepend-icon="mdi-calendar-range"
+                    v-on="on"></v-text-field>
+                </template>
+                <v-date-picker v-model="endDate"></v-date-picker>
+              </v-menu>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-col>
+    </v-row>
 
 
     <!-- Budget selection -->
@@ -130,55 +127,91 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   data() {
     return {
+      // Data for handling city input and autocomplete
+      city: '',
+      allCities: ['New York', 'Los Angeles', 'Chicago', 'San Francisco', 'Seattle'],
+      menu: false,
+
+      // Data for budget selection
       budgets: [
         { label: 'Cheap', value: 'cheap', range: '0 - 1000 USD', selected: false },
         { label: 'Medium', value: 'medium', range: '1000 - 2500 USD', selected: false },
         { label: 'Expensive', value: 'expensive', range: '2500+ USD', selected: false },
       ],
+
+      // Data for travel companion selection
       travelCompanions: [
         { label: 'Solo', value: 'solo', selected: false },
         { label: 'Group', value: 'group', selected: false },
         { label: 'Couple', value: 'couple', selected: false },
       ],
+
+      // Other data properties
       selectedDate: null,
       isDatePickerVisible: false,
       travelDestination: null,
       selectedBudget: null,
     };
+  },
+  computed: {
+    // Computed property for autocomplete suggestions based on user input
+    autocompleteCities() {
+      // Check if this.city is null or undefined
+      if (this.city == null) {
+        return [];
+      }
 
+      // Filter cities based on user input
+      return this.allCities.filter(city =>
+        city.toLowerCase().includes(this.city.toLowerCase())
+      );
+    },
+    
   },
   methods: {
+    // Method for handling input change in the city text field
+    onInputChange() {
+      this.menu = !!this.city; // Show menu only when there is input
+    },
+    // Method for selecting a city from the autocomplete suggestions
+    selectCity(selectedCity) {
+      this.city = selectedCity;
+      this.menu = false;
+    },
+
+
+
+
+    // Method for displaying the date picker
     showDatePicker() {
       this.isDatePickerVisible = true;
     },
+    // Method for hiding the date picker
     hideDatePicker() {
       this.isDatePickerVisible = false;
     },
-    selectBudget(budget) {
-      this.selectedBudget = budget;
-    },
-    selectTravelCompanion(companion) {
-      this.companion = companion;
-    },
-    generateItinerary() {
-      // Add logic for generating the itinerary or route to another view page
-      // For example, you can use Vue Router to navigate to a new page
-      this.$router.push('/Itinerary');
-    },
+    // Method for selecting a budget
     selectBudget(selectedBudget) {
       this.budgets.forEach((budget) => {
         budget.selected = budget === selectedBudget;
       });
     },
+    // Method for selecting a travel companion
     selectTravelCompanion(selectedCompanion) {
       this.travelCompanions.forEach((companion) => {
         companion.selected = companion === selectedCompanion;
       });
-    }
-    
+    },
+    // Method for generating an itinerary or navigating to another view page
+    generateItinerary() {
+      // Add logic for generating the itinerary or route to another view page
+      // For example, you can use Vue Router to navigate to a new page
+      this.$router.push('/Itinerary');
+    },
   },
 });
 </script>
+
 
 <style>
 .companion-btn {
@@ -191,29 +224,3 @@ export default defineComponent({
   margin-top: 8px;
 }
 </style>
-
-
-
-
-<!-- <v-row> -->
-          <!-- <v-col cols="6">
-              <v-text-field v-model="startDate" label="Start Date" readonly @click="startDateMenu = !startDateMenu"></v-text-field>
-              <v-menu v-model="startDateMenu" :close-on-content-click="false" transition="scale-transition" offset-y>
-                <template v-slot:activator="{ on }">
-                  <v-text-field v-model="startDate" readonly v-on="on"></v-text-field>
-                </template>
-                <v-date-picker v-model="startDate" @input="startDateMenu = false"></v-date-picker>
-              </v-menu>
-            </v-col> -->
-
-          <!-- <v-col cols="6">
-              <v-text-field v-model="endDate" label="End Date" readonly
-                @click="endDateMenu = !endDateMenu"></v-text-field>
-              <v-menu v-model="endDateMenu" :close-on-content-click="false" transition="scale-transition">
-                <template v-slot:activator="{ on }">
-                  <v-text-field v-model="endDate" readonly v-on="on"></v-text-field>
-                </template>
-                <v-date-picker v-model="endDate" @input="endDateMenu = false"></v-date-picker>
-              </v-menu>
-            </v-col>
-          </v-row> -->
