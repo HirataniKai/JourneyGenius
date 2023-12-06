@@ -123,20 +123,63 @@ export default defineComponent({
         };
     },
     methods: {
-        redirectToMoreActivitiesPage() {
-            // Use Vue Router to navigate to the page with more options
-            this.$router.push('/MoreActivitiesPage');
-        },
-        redirectToMoreLandmarksPage() {
-            this.$router.push('/MoreLandmarksPage');
-        },
-        redirectToMoreDiningPage() {
-            this.$router.push('/MoreDiningPage');
-        },
-        redirectToMoreShoppingPage() {
-            this.$router.push('/MoreShoppingPage');
-        },
-    }
+  redirectToMoreActivitiesPage() {
+    // Update Vuex state before navigating
+    this.$store.commit('updateSelectedActivities', this.selectedActivities);
+    // Use Vue Router to navigate to the page with more options
+    this.$router.push('/MoreActivitiesPage');
+  },
+  redirectToMoreLandmarksPage() {
+    this.$store.commit('updateSelectedLandmarks', this.selectedLandmarks);
+    this.$router.push('/MoreLandmarksPage');
+  },
+  redirectToMoreDiningPage() {
+    this.$store.commit('updateSelectedFoods', this.selectedFoods);
+    this.$router.push('/MoreDiningPage');
+  },
+  redirectToMoreShoppingPage() {
+    this.$store.commit('updateSelectedShops', this.selectedShops);
+    this.$router.push('/MoreShoppingPage');
+  },
+},
+
+    computed: {
+        computed: {
+    selectedActivities: {
+      get() {
+        return this.$store.state.selectedActivities;
+      },
+      set(value) {
+        this.$store.commit('updateSelectedActivities', value);
+      },
+    },
+    selectedLandmarks: {
+      get() {
+        return this.$store.state.selectedLandmarks;
+      },
+      set(value) {
+        this.$store.commit('updateSelectedLandmarks', value);
+      },
+    },
+    selectedFoods: {
+      get() {
+        return this.$store.state.selectedFoods;
+      },
+      set(value) {
+        this.$store.commit('updateSelectedFoods', value);
+      },
+    },
+    selectedShops: {
+      get() {
+        return this.$store.state.selectedShops;
+      },
+      set(value) {
+        this.$store.commit('updateSelectedShops', value);
+      },
+    },
+  },
+
+}
 
 });
 </script>
