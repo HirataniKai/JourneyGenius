@@ -51,9 +51,16 @@
           <h3 class="headline text-deep-purple-accent-2">Interest Activities</h3>
           <v-row justify="center">
             <v-col v-for="activity in interestActivities" :key="activity" cols="4">
-              <v-btn class="interest-btn"
-                :color="selectedActivities.includes(activity) ? 'deep-purple' : 'deep-purple-accent-2'"
+              <v-btn class="interest-btn" stacked="" :color="selectedActivities.includes(activity) ? 'deep-purple' : 'deep-purple-accent-2'"
                 @click="toggleInterest(activity)">
+                <v-icon v-if="activity === 'Beaches'">mdi-beach</v-icon>
+                <v-icon v-if="activity === 'City Sightseeing'">mdi-city</v-icon>
+                <v-icon v-if="activity === 'Outdoor Adventures'">mdi-image-filter-hdr</v-icon>
+                <v-icon v-if="activity === 'Festival/Events'">mdi-party-popper</v-icon>
+                <v-icon v-if="activity === 'Food Exploration'">mdi-food</v-icon>
+                <v-icon v-if="activity === 'Nightlife'">mdi-glass-cocktail</v-icon>
+                <v-icon v-if="activity === 'Shopping'">mdi-shopping</v-icon>
+                <v-icon v-if="activity === 'Spa Wellness'">mdi-spa</v-icon>
                 {{ activity }}
               </v-btn>
             </v-col>
@@ -97,7 +104,7 @@
 
   <!-- Save button -->
   <v-row justify="center" class="mt-4">
-    <v-col cols="12" md="8" class="text-center">
+    <v-col cols="12" md="1" class="text-center">
       <v-btn class="save-btn" color="deep-purple-accent-2" @click="saveData">
         Save
       </v-btn>

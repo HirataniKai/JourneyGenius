@@ -1,10 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import about from '../views/About.vue'
 import UserProfiling from '../views/UserProfiling.vue'
 import SavedTrips from '../views/SavedTrips.vue'
 import StartPlanning from '../views/StartPlanning.vue'
 import LoginPage from '../views/LoginPage.vue'
+import Itinerary from '../views/Itinerary.vue'
+import MoreActivitiesPage from '../views/MoreActivitiesPage.vue'
+import MoreLandmarksPage from '../views/MoreActivitiesPage.vue'
+import MoreDiningPage from '../views/MoreDiningPage.vue'
+import MoreShoppingPage from '../views/MoreShoppingPage.vue'
 
 const routes = [
   {
@@ -40,6 +44,31 @@ const routes = [
     name: 'LoginPage', 
     component: LoginPage, 
   },
+  {
+    path: '/Itinerary',
+    name: 'Itinerary',
+    component: Itinerary,
+  },
+  {
+    path: '/MoreActivitiesPage',
+    name: 'MoreActivitiesPage',
+    component: MoreActivitiesPage,
+  },
+  {
+    path: '/MoreDiningPage',
+    name: 'MoreDiningPage',
+    component: MoreDiningPage,
+  },
+  {
+    path: '/MoreLandmarksPage',
+    name: 'MoreLandmarksPage',
+    component: MoreLandmarksPage,
+  },
+  {
+    path: '/MoreShoppingPage',
+    name: 'MoreShoppingPage',
+    component: MoreShoppingPage,
+  }
 ]
 
 const router = createRouter({

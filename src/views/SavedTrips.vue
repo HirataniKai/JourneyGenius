@@ -56,7 +56,7 @@
               class="mb-3"
               style="width: 100%; border-radius: 8px;"
             ></v-img>
-            <v-btn color="primary" class="mt-3" @click="openItinerary">
+            <v-btn color="deep-purple-accent-2" class="mt-3" @click="openItinerary">
               Open Itinerary
             </v-btn>
           </v-row>
