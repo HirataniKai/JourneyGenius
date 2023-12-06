@@ -9,6 +9,8 @@ import MoreActivitiesPage from '../views/MoreActivitiesPage.vue'
 import MoreLandmarksPage from '../views/MoreActivitiesPage.vue'
 import MoreDiningPage from '../views/MoreDiningPage.vue'
 import MoreShoppingPage from '../views/MoreShoppingPage.vue'
+import Itinerary2 from '../views/Itinerary2.vue'
+
 
 const routes = [
   {
@@ -68,6 +70,11 @@ const routes = [
     path: '/MoreShoppingPage',
     name: 'MoreShoppingPage',
     component: MoreShoppingPage,
+  },
+  {
+    path: '/Itinerary2',
+    name: 'Itinerary2',
+    component: Itinerary2,
   }
 ]
 

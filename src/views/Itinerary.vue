@@ -25,6 +25,7 @@
         <v-row justify="center" class="mt-4">
             <v-col cols="12" md="8">
                 <h3 class="headline text-deep-purple-accent-2">Choose the Activities that Peak Your Interest</h3>
+                <br>
                 <v-row>
                     <v-col v-for="(activity, index) in activities" :key="index" cols="12">
                         <v-checkbox v-model="selectedActivities[index]" :label="activity" class="mb-1"></v-checkbox>
@@ -40,6 +41,7 @@
         <v-row justify="center" class="mt-4">
             <v-col cols="12" md="8">
                 <h3 class="headline text-deep-purple-accent-2">Iconic Landmarks and Photo Opportunities</h3>
+                <br>
                 <v-row>
                     <v-col v-for="(landmark, index) in landmarks" :key="index" cols="12">
                         <v-checkbox v-model="selectedLandmarks[index]" :label="landmark" class="mb-1"></v-checkbox>
@@ -55,6 +57,7 @@
         <v-row justify="center" class="mt-4">
             <v-col cols="12" md="8">
                 <h3 class="headline text-deep-purple-accent-2">What do You want to Eat?</h3>
+                <br>
                 <v-row>
                     <v-col v-for="(food, index) in foods" :key="index" cols="12">
                         <v-checkbox v-model="selectedFoods[index]" :label="food" class="mb-1"></v-checkbox>
@@ -70,6 +73,7 @@
         <v-row justify="center" class="mt-4">
             <v-col cols="12" md="8">
                 <h3 class="headline text-deep-purple-accent-2">Shopping Spots</h3>
+                <br>
                 <v-row>
                     <v-col v-for="(shop, index) in shops" :key="index" cols="12">
                         <v-checkbox v-model="selectedShops[index]" :label="shop" class="mb-1"></v-checkbox>
@@ -88,14 +92,14 @@
             <hr />
 
             <router-link to="/StartPlanning">
-                <v-btn color="deep-purple-accent-2" class="white--text mt-6 mr-2" @click="previousStep">
+                <v-btn color="deep-purple-accent-2" class="white--text mt-6 mr-2" @click="previousStep" style="min-width: 150px;">
                     Previous Step
                 </v-btn>
             </router-link>
 
             <router-link to="/StartPlanning">
-                <v-btn color="deep-purple-accent-2" class="white--text mt-6 ml-2">
-                    Start Planning
+                <v-btn color="deep-purple-accent-2" class="white--text mt-6 ml-2" style="min-width: 150px;">
+                    Next Step
                 </v-btn>
             </router-link>
         </v-col>
