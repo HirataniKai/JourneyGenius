@@ -34,13 +34,25 @@
    ```
    source env/bin/activate
    ```
-   Install Flask Alchemy (SQL database integration):
+   Install project dependencies:
    ```
-   pip3 install flask flask-sqlalchemy
+   pip3 install flask flask_sqlalchemy flask_login flask_bcrypt flask_wtf wtforms email_validator
    ```
 
 ### To access running application on a web browser:
-1. To run the application, paste the following command in your IDE terminal:  
+1. To run the application, paste the following commands one at a time into your IDE terminal:  
+   ```
+   flask shell
+   ```
+   ```
+   from app import db
+   ```
+   ```
+   db.create_all()
+   ```
+   ```
+   exit()
+   ```
    ```
    python3 app.py
    ```  
