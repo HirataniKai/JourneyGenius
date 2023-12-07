@@ -10,7 +10,8 @@ import MoreLandmarksPage from '../views/MoreLandmarksPage.vue'
 import MoreDiningPage from '../views/MoreDiningPage.vue'
 import MoreShoppingPage from '../views/MoreShoppingPage.vue'
 import Itinerary2 from '../views/Itinerary2.vue'
-
+import GeneratedItinerary from '../views/GeneratedItinerary.vue'
+import GeneratedItinerary2 from '../views/GeneratedItinerary2.vue'
 
 const routes = [
   {
@@ -75,7 +76,19 @@ const routes = [
     path: '/Itinerary2',
     name: 'Itinerary2',
     component: Itinerary2,
-  }
+  },
+  {
+    path: '/GeneratedItinerary',
+    name: 'GeneratedItinerary',
+    component: GeneratedItinerary,
+  },
+  {
+    path: '/GeneratedItinerary2',
+    name: 'GeneratedItinerary2',
+    component: GeneratedItinerary2,
+  },
+  
+  
 ]
 
 const router = createRouter({

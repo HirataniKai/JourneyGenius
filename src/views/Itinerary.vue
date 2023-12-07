@@ -97,7 +97,7 @@
                 </v-btn>
             </router-link>
 
-            <router-link to="/StartPlanning">
+            <router-link to="/Itinerary2">
                 <v-btn color="deep-purple-accent-2" class="white--text mt-6 ml-2" style="min-width: 150px;">
                     Next Step
                 </v-btn>

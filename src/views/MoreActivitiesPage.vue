@@ -1,4 +1,5 @@
 <template>
+    <div style="max-width: 1200px;"> 
     <!-- Header -->
     <v-row justify="center" class="mt-4">
         <v-col cols="12" md="8" class="text-center">
@@ -35,6 +36,7 @@
             </v-col>
         </v-col>
     </v-row>
+    </div>
 </template>
 
 <script>
