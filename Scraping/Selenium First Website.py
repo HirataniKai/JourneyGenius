@@ -4,11 +4,11 @@ import requests
 from bs4 import BeautifulSoup as BS
 
 # Specify the path to the ChromeDriver executable
-chromedriver_path = "C:/Program Files (x86)/chrome-win64/chromedriver.exe"
+chromedriver_path = "C:/Program Files (x86)/chromedriver-win64/chromedriver.exe"
 
 # Create a ChromeOptions object
 chrome_options = webdriver.ChromeOptions()
-chrome_options.binary_location = "C:\\Program Files (x86)\\chrome-win64\\chrome.exe"
+chrome_options.binary_location = "c:\Program Files\Google\Chrome Beta\Application\chrome.exe"
 
 # Set the path to the ChromeDriver executable
 chrome_options.add_argument(f"webdriver.chrome.driver={chromedriver_path}")
