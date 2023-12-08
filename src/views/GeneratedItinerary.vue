@@ -81,45 +81,45 @@
             </div>
 
             <!-- New Section: Estimated Costs -->
-<div class="info-container" style="margin-bottom: 30px; max-width: none;">
-    <h2 class="section-title">Estimated Costs (USD)</h2>
-    <div class="section-content">
-        <v-row>
-            <v-col cols="12" md="6">
-                <v-icon color="deep-purple-accent-2">mdi-bed</v-icon> Accommodation: $100-$200 per night
-            </v-col>
-            <v-col cols="12" md="6">
-                <v-icon color="deep-purple-accent-2">mdi-bus</v-icon> Transportation: $20-$50 per day
-            </v-col>
-            <v-col cols="12" md="6">
-                <v-icon color="deep-purple-accent-2">mdi-food</v-icon> Food: $20-$40 per meal
-            </v-col>
-            <v-col cols="12" md="6">
-                <v-icon color="deep-purple-accent-2">mdi-walk</v-icon> Activities: $20-$50 per activity
-            </v-col>
-        </v-row>
-    </div>
-</div>
+            <div class="" style="margin-bottom: 30px; max-width: none;">
+                <h2 class="section-title">Estimated Costs (USD)</h2>
+                <div class="section-content">
+                    <v-row>
+                        <v-col cols="12" md="6">
+                            <v-icon color="deep-purple-accent-2">mdi-bed</v-icon> Accommodation: $100-$200 per night
+                        </v-col>
+                        <v-col cols="12" md="6">
+                            <v-icon color="deep-purple-accent-2">mdi-bus</v-icon> Transportation: $20-$50 per day
+                        </v-col>
+                        <v-col cols="12" md="6">
+                            <v-icon color="deep-purple-accent-2">mdi-food</v-icon> Food: $20-$40 per meal
+                        </v-col>
+                        <v-col cols="12" md="6">
+                            <v-icon color="deep-purple-accent-2">mdi-walk</v-icon> Activities: $20-$50 per activity
+                        </v-col>
+                    </v-row>
+                </div>
+            </div>
 
 
 
-        <!-- Two buttons on the bottom -->
-        <v-row justify="center" class="mt-4">
-            <v-col cols="12" md="8" class="text-center">
-                <router-link to="/Itinerary">
-                    <v-btn color="deep-purple-accent-2" class="white--text mt-6 mr-2" @click="previousStep"
-                        style="min-width: 150px;">
-                        Customize
-                    </v-btn>
-                </router-link>
+            <!-- Two buttons on the bottom -->
+            <v-row justify="center" class="mt-4">
+                <v-col cols="12" md="8" class="text-center">
+                    <router-link to="/Itinerary">
+                        <v-btn color="deep-purple-accent-2" class="white--text mt-6 mr-2" @click="previousStep"
+                            style="min-width: 150px;">
+                            Customize
+                        </v-btn>
+                    </router-link>
 
-                <router-link to="/GeneratedItinerary2">
-                    <v-btn color="deep-purple-accent-2" class="white--text mt-6 ml-2" style="min-width: 150px;">
-                        Generate
-                    </v-btn>
-                </router-link>
-            </v-col>
-        </v-row>
+                    <router-link to="/GeneratedItinerary2">
+                        <v-btn color="deep-purple-accent-2" class="white--text mt-6 ml-2" style="min-width: 150px;">
+                            Generate
+                        </v-btn>
+                    </router-link>
+                </v-col>
+            </v-row>
 
         </v-row>
 

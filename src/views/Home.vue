@@ -67,7 +67,8 @@
             <!-- Replace the placeholder content with your destination information -->
             <h3 class="subtitle-1 text-center mt-2 ">{{ destination.name }}</h3>
             <p class="body-1 text-center">{{ destination.description }}</p>
-            <v-img :src="destination.image" alt="Destination Image"></v-img>
+            <br>
+            <v-img :src="destination.image" alt="Destination Image" style="border-radius: 5px;"></v-img>
           </v-card>
         </v-col>
       </v-row>
