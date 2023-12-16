@@ -1,7 +1,7 @@
 
 ############################################################
 
-#################   XPATH RENDITION   ######################
+#################   PRE RENDITION   ######################
 
 ############################################################
 
@@ -137,7 +137,7 @@ def get_first_unsponsored_link_css(soup):
 
 # Create a Chrome options object with headless mode enabled
 chrome_options = Options()
-chrome_options.add_argument("--headless")
+# chrome_options.add_argument("--headless")
 
 # Create a WebDriver object with the specified options
 driver = webdriver.Chrome(options=chrome_options)
@@ -205,3 +205,17 @@ with open(csv_filename, 'w', newline='', encoding='utf-8') as csv_file:
 
 # Close the browser
 driver.quit()
+
+
+# Try on mozilla or edge 
+# Might want to find an adblocker plugin to 
+# pi hole 
+# COULD TAKE A TRAVEL SITE THAT YOU LIKE AND SCRAPE THAT
+# COULD USE ML MODEL THAT GOES OFF DATA THAT 
+
+# GENERATE DATA TYPE INTO CHAT GPT WITH PARAMETERS YOU CARE ABOUT
+    # 3 COLUMNS , FLIGHT TIME, FLIGHT, DATE, DURATION
+    # DATASET 10000 POINTS - 
+
+    # AUTO GLUE ON IS A PACKAGE FOR RANKING DATA 
+    # KAGGLE IS A DATA COMPETITION FOR ML 

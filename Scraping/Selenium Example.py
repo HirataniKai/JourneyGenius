@@ -46,3 +46,5 @@ driver = webdriver.Chrome(options=chrome_options)
 
 # Get the desired URL
 driver.get("https://myanimelist.net/anime/17265/Log_Horizon")
+
+driver.implicitly_wait(10)
