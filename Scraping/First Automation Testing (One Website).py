@@ -123,7 +123,9 @@ import csv
 def get_first_unsponsored_link_css(soup):
 
     # CSS selector for the first unsponsored result link
-    css_selector = "div.MjjYud:first-of-type > a:not([data-adchannel]):first-of-type"
+    # css_selector = "div.MjjYud:first-of-type > a:not([data-adchannel]):first-of-type"
+
+    css_selector = "div.b_results > li:nth-child(7) > div.b_title > h2 > a"
 
 
     # Find the first matching element using CSS selector
@@ -143,7 +145,7 @@ chrome_options = Options()
 driver = webdriver.Chrome(options=chrome_options)
 
 # Navigate to the Google search website
-driver.get("https://www.google.com")
+driver.get("https://www.bing.com")
 
 # Find the search input field by name
 search_input = driver.find_element(By.NAME, "q")
@@ -157,7 +159,7 @@ search_input.send_keys(webdriver.common.keys.Keys.RETURN)
 # Wait for the search results to load
 driver.implicitly_wait(5)
 
-# Get the soup object from the Google search results page
+# Get the soup object from the Bing search results page
 soup = BS(driver.page_source, "html.parser")
 
 # Get the first search result link
