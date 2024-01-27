@@ -1,27 +1,32 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col v-for="(day, index) in itinerary" :key="index" cols="12">
-        <v-card class="activity-card">
-          <v-card-title :class="['headline', fontSizeClass(index)]">
-            <v-icon v-if="timelineIcon(index)" :class="['mr-2', iconColorClass(index)]">
-              {{ timelineIcon(index) }}
-            </v-icon>
-            {{ day.title }}
-          </v-card-title>
-          <v-row>
-            <v-col v-for="(activity, activityIndex) in day.activities" :key="activityIndex" cols="12" md="4">
-              <v-card class="activity-box">
-                <v-img :src="activity.image" alt="Activity Image" class="activity-img-with-border"></v-img>
-                <v-card-title>{{ activity.name }}</v-card-title>
-                <v-card-text>{{ activity.description }}</v-card-text>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+<v-container fluid class="no-border">
+  <v-row>
+    <v-col v-for="(day, index) in itinerary" :key="index" cols="12">
+      <v-card class="activity-card" style="display: flex; flex-direction: column; height: 100%;">
+        <v-card-title :class="['headline', fontSizeClass(index)]">
+          <v-icon v-if="timelineIcon(index)" :class="['mr-2', iconColorClass(index)]">
+            {{ timelineIcon(index) }}
+          </v-icon>
+          {{ day.title }}
+        </v-card-title>
+        <br>
+        <br>
+        <br>
+        <v-row style="flex: 1;">
+          <v-col v-for="(activity, activityIndex) in day.activities" :key="activityIndex" cols="12" md="4">
+            <v-card class="activity-box" style="flex: 1;">
+              <!-- Set a fixed height for the images -->
+              <v-img :src="activity.image" alt="Activity Image" class="activity-img-with-border" style="object-fit: cover; width: 100%; height: 100%;"></v-img>
+              <v-card-title>{{ activity.name }}</v-card-title>
+              <v-card-text class="description-height">{{ activity.description }}</v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-col>
+  </v-row>
+</v-container>
+
 
     <!-- Two buttons on the bottom -->
     <v-row justify="center" class="mt-4">
@@ -58,7 +63,7 @@ export default {
                         {
                             name: 'Golden State Bridge',
                             description: 'An absolute classic, the Golden Gate Bridge is one of the most recognizable landmarks in the world. Head to viewpoints like Battery Spencer or the Golden Gate Overlook for breathtaking shots.',
-                            image: require('@/assets/goldenStateBridge.jpeg'),
+                            image: require('@/assets/goldenstatebridge2.jpeg'),
                         },
                         {
                             name: 'Lunch at Local Restaurant',
@@ -78,18 +83,29 @@ export default {
                         {
                             name: 'Tea Hut (280 Golden Gate Ave)',
                             description: 'A Chinatown favorite, Tea Hut serves a variety of teas, including boba, fruit teas, and slushies.',
-                            image: require('@/assets/boba.jpeg'),
+                            image: require('@/assets/boba2.jpeg'),
                         },
                         {
                             name: 'Union Square',
                             description: 'Known as the city\'s premier shopping destination, Union Square is home to flagship stores of major brands such as Macy\'s, Saks Fifth Avenue, Neiman Marcus, and Apple. You\'ll also find a variety of luxury boutiques and department stores in the surrounding area.',
-                            image: require('@/assets/unionSquare.jpeg'),
+                            image: require('@/assets/unionsquare2.jpeg'),
                         },
                         {
                             name: 'Fisherman\'s Wharf',
                             description: 'This popular tourist destination offers a mix of souvenir shops, specialty stores, and waterfront markets. It\'s a lively area with a variety of shopping options.',
-                            image: require('@/assets/fishermansWharf.jpeg'),
+                            image: require('@/assets/wharf2.jpeg'),
+                        },
+                        {
+                            name: 'Ghirardelli Square (900 North Point St)',
+                            description: 'While primarily known for its chocolate shops, Ghirardelli Square also houses boutique stores, galleries, and restaurants. It\'s a great place to shop while enjoying views of the bay.',
+                            image: require('@/assets/gs.jpeg'),
+                        },
+                        {
+                            name: 'Sailing on the Bay',
+                            description: 'Charter a sailboat or join a sailing tour to experience the beauty of San Francisco from the water.',
+                            image: require('@/assets/ferry.jpeg'),
                         }
+
                     ],
                 },
                 {
@@ -108,17 +124,17 @@ export default {
                         {
                             name: 'Beach Day at Ocean Beach',
                             description: 'Enjoy a day at Ocean Beach, located on the western edge of the city. It\'s a great spot for a beach walk, picnics, and watching the sunset over the Pacific.',
-                            image: require('@/assets/oceanBeach.jpeg'),
+                            image: require('@/assets/sfbeach.jpeg'),
                         },
                         {
                             name: 'Rich Table (199 Gough St)',
                             description: 'A Michelin-starred restaurant that offers creative and seasonal dishes in a relaxed and inviting setting.',
-                            image: require('@/assets/sf.jpeg'),
+                            image: require('@/assets/food.jpeg'),
                         },
                         {
                             name: 'Flight Back Home',
                             description: 'Enjoy a smooth transition from the vibrant cityscape to the comfort of air travel as you drive to San Francisco International Airport (SFO), winding through iconic streets before arriving at the modern terminals for your journey home.',
-                            image: require('@/assets/airport.jpeg'),
+                            image: require('@/assets/sfo2.jpeg'),
                         }
                     ],
                 }
@@ -167,20 +183,19 @@ export default {
   
 
 <style scoped>
-.activity-card {
-    height: auto;
-    /* Set a fixed height for the card if needed */
+ .description-height {
+    height: 100px; /* Set a fixed height for the descriptions */
+    overflow: hidden; /* Hide overflow content if the description is longer */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit the number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+
+  .activity-img-with-border {
+  border: 1px solid #ddd; /* Add a border for visual separation */
 }
 
-.activity-box {
-    height: 100%;
-    /* Set a fixed height for the activity box */
-}
-
-.activity-img {
-    height: 150px;
-    /* Set a fixed height for the image inside the card */
-    object-fit: cover;
-    /* Maintain the aspect ratio of the image */
+/* Additional styling for responsiveness, if needed */
+@media (max-width: 600px) {
 }
 </style>
